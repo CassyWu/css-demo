@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+.expandText__wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #222;
+}
+
+.reveal{
+  font-size: 2em;
+  color: #6ee1f5;
+  font-family: Raleway, sans-serif;
+  text-transform: uppercase;
+  display: flex;
+  white-space: pre;
+  position: relative;
+
+  span{
+    opacity: 0;
+    transform: scale(0);
+    animation: landIn 2.4s forwards;
+  }
+
+  &::before,
+  &::after{
+    content: '';
+    width: 2px;
+    height: 100%; //absolute element will inherit from which already has set position
+    background: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  &::before{
+    left: 50%;
+    animation: sideLeft 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+  }
+
+  &::after{
+    right: 50%;
+    animation: sideRight 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+  }
+}
+
+@keyframes landIn {
+  to{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sideLeft {
+  to{
+    left: -6%;
+    opacity: 1;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes sideRight {
+  to{
+    right: -6%;
+    opacity: 1;
+    transform: scale(0.9);
+  }
+}
