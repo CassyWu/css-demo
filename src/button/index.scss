@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+.btn_wrapper{
+  height: 100vh;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-1{
+  color: #00d1b2;
+  font-size: 16px;
+  border: 1px solid #00d1b2;
+  padding: 16px 48px;
+  position: relative;
+
+  &::before,
+  &::after{
+    content: "";
+    width: 0;
+    height: 1px; // top and bottom hover border
+    position: absolute;
+    transition: all 0.2s linear;
+    background: #fff;
+    left: 0; //start position
+  }
+
+  &::before{
+    top: 0;
+  }
+
+  &::after{
+    bottom: 0;
+  }
+
+  span{
+    &::before,
+    &::after{
+      content: "";
+      width: 1px; //left and right hover border
+      height: 0;
+      position: absolute;
+      transition: all 0.2s linear;
+      background: #fff;
+      bottom: 0; //start position
+    }
+
+    &::before{
+      left: 0;
+    }
+
+    &::after{
+      right: 0;
+    }
+  }
+
+  &:hover{
+    border: none;
+
+    &::before,
+    &::after{
+      width: 100%;
+    }
+
+    &::before{
+      transition-delay: 0.1s;
+    }
+
+    span{
+      &::before,
+      &::after{
+        height: 100%;
+      }
+
+      &::after{
+        transition-delay: 0.3s;
+      }
+    }
+  }
+}

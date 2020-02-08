@@ -1,12 +1,12 @@
 import React from 'react';
-import Snow from './snow';
+import Button from './button';
 import './index.scss';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Snow/>
+        <Button/>
       </header>
     </div>
   );
