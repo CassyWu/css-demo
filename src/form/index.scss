@@ -1,0 +1,80 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.form__wrapper{
+  height: 100vh;
+  background: #222;
+  display: flex;
+  justify-content: center;
+}
+
+.todoList{
+  padding: 0 75px 10px 30px;
+  background: #162740;
+  border: transparent;
+
+  .todoList__title{
+    color: #f1faee;
+    padding: 3px 6px;
+    background: #264456;
+  }
+
+  label{
+    display: block;
+    color: #fff;
+    margin: 40px 0;
+    font-size: 24px;
+    cursor: pointer;
+
+    input[type="checkbox"]{
+      appearance: none; //hide default style for checkbox
+      opacity: 0; //hide default style for checkbox
+
+      & + .checkIcon{
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border: 2px solid #fff;
+      }
+
+      & ~ span{
+        position: relative;
+        left: 40px;
+
+        &::before{
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: #fff;
+          transform: scaleX(0);
+          transform-origin: right; //when clicked, the line will transform right side
+          transition: 0.5s; //control the transition unchecked
+        }
+      }
+
+      &:checked{
+        & + .checkIcon{
+          width: 25px;
+          height: 15px;
+          border-top: transparent;
+          border-right: transparent;
+          transform: rotate(-45deg);
+          transition: 0.2s;
+        }
+
+        & ~ span{
+          color: #585b57;
+
+          &::before{
+            transform: scaleX(1);
+            transition: 0.5s;
+          }
+        }
+      }
+    }
+  }
+}

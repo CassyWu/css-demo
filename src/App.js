@@ -1,12 +1,12 @@
 import React from 'react';
-import Button from './button';
+import Form from './form';
 import './index.scss';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Button/>
+        <Form/>
       </header>
     </div>
   );
